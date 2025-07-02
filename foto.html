@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foto Foto | Ristanti Wau</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Menghubungkan dengan file CSS yang sama -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      background: #A4D7E1; /* Warna latar belakang biru langit */
+      min-height: 100vh; /* Memastikan body memenuhi tinggi layar */
+    }
+    .sidebar {
+      width: 100%; /* Mengubah lebar sidebar menjadi 100% */
+      background-color: #6BB9E2; /* Warna sidebar biru langit */
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Memusatkan konten di dalam sidebar */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center; /* Memusatkan teks di dalam sidebar */
+    }
+
+    .sidebar h2 {
+      font-size: 36px; /* Ukuran font yang diperbesar */
+      color: #FFFFFF; /* Warna judul sidebar putih */
+      margin-bottom: 10px; /* Menambahkan jarak bawah */
+    }
+
+    .nav {
+      display: flex; /* Mengubah menjadi flex untuk tata letak berderetan */
+      justify-content: center; /* Memusatkan tautan secara horizontal */
+      flex-wrap: wrap; /* Membungkus tautan jika diperlukan */
+      margin-bottom: 20px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #FFFFFF; /* Mengubah warna teks tautan menjadi putih */
+      padding: 10px 15px; /* Menambahkan padding horizontal */
+      border-radius: 8px;
+      transition: background 0.3s;
+      background-color: #4A9BC8; /* Warna latar belakang tautan */
+      margin: 5px; /* Menambahkan margin antar tautan */
+    }
+
+    .nav a:hover {
+      background-color: #3A7DAF; /* Warna latar belakang saat hover */
+    }
+
+    .main {
+      flex: 1;
+      padding: 40px; /* Mengurangi padding untuk konten utama */
+      background: #E1F5FE; /* Warna latar belakang konten utama biru muda */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Memusatkan konten secara horizontal */
+      justify-content: center; /* Memusatkan konten secara vertikal */
+    }
+
+    .slider {
+      position: relative;
+      max-width: 1000px; /* Lebar maksimum slider */
+      width: 100%; /* Lebar penuh */
+      overflow: hidden; /* Menyembunyikan gambar yang melampaui batas */
+      border-radius: 10px; /* Sudut slider melengkung */
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease; /* Transisi untuk efek geser */
+      width: 100%; /* Lebar penuh */
+    }
+
+    .slides img {
+      width: 100%; /* Gambar responsif */
+      border-radius: 10px; /* Sudut gambar melengkung */
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        padding: 20px; /* Mengurangi padding pada perangkat kecil */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="nav">
+      <a href="index.html">Profil</a>
+      <a href="about.html">Tentang</a>
+      <a href="blog.html">Bloger</a>
+      <a href="foto.html">Foto Foto</a>
+      <a href="portofolio.html">Portofolio</a>
+      <a href="contact.html">Kontak</a>
+    </div>
+  </div>
+  <div class="main">
+    <h1>Galeri Foto</h1>
+    <div class="slider">
+      <div class="slides">
+        <img src="foto1.jpg" alt="Foto 1">
+        <img src="foto2.jpg" alt="Foto 2">
+        <img src="foto3.jpg" alt="Foto 3">
+        <img src="foto4.jpg" alt="Foto 4">
+        <img src="foto5.jpg" alt="Foto 5">
+        <img src="foto6.jpg" alt="Foto 6">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = slides.children.length;
+
+    function showNextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides; // Menghitung indeks slide berikutnya
+      const offset = -currentIndex * 100; // Menghitung offset untuk geser
+      slides.style.transform = `translateX(${offset}%)`; // Menggeser gambar
+    }
+
+    setInterval(showNextSlide, 3000); // Mengganti gambar setiap 3 detik
+  </script>
+</body>
+</html>
